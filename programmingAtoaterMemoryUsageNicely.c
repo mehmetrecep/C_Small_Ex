@@ -19,7 +19,7 @@ int main(void) {
         return 0;
     }
     
-    long long total_size = (long long)size * num;
+    long total_size = (long)size * num;
     int bytes = total_size % 1000;
     total_size /= 1000;
     int kilobytes = total_size % 1000;
