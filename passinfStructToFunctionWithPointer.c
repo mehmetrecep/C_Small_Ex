@@ -30,11 +30,14 @@ void readStudent(struct student *stud_ptr){
     scanf("%s",(*stud_ptr).secondName);
     printf("Enter your age: ");
     scanf("%d",&(*stud_ptr).age);
+    printf("Enter you current status: ");
+    scanf("%s", (*stud_ptr).currentStatus);
 }
 
 void printStudent(struct student std){
     printf("first name : %s\n",std.firstName);
     printf("second name : %s\n ",std.secondName);
     printf("age : %d\n",std.age);
+    printf("current status : %s\n", std.currentStatus);
     
 };
