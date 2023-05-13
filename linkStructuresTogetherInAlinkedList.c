@@ -7,14 +7,17 @@ struct point{
     struct point *next;
 };
 void printPoints(struct point *start);
+void append(struct point *end, struct point *start);
 int main(void){
     struct point pt1 = {1,2, NULL};
     struct point pt2 = {-2,3, NULL};
     struct point pt3 = {5, -4, NULL};
     struct point *start, *ptr;
+    /*
     start = &pt1;
     pt1.next = &pt2;
     pt2.next = &pt3;
+    */
 
     /*
     printf("pt1 address :%p\n",&pt1);
@@ -23,7 +26,8 @@ int main(void){
     printf("%p\n",pt2.next);
     */
     printPoints(start);
-
+    append(&pt1,&pt2);
+    append(&pt2,&pt3);
     return 0;
 }
 
@@ -36,3 +40,6 @@ void printPoints(struct point *start){
     ptr = ptr->next;
     }
 }
+void append(struct point *end, struct point *start){
+    end->next = start;
+};
