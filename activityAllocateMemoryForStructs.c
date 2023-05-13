@@ -12,10 +12,15 @@ void initializePoly(struct point *ptr, int num);
 
 int main(void){
     int numOfVertices;
-    struct point *point;
+    struct point *poly;
     printf("Enter the number of vertices : ");
     scanf("%d",&numOfVertices);
-    point = (struct point *)malloc(numOfVertices * sizeof(struct point));
+    poly = (struct point *)malloc(numOfVertices * sizeof(struct point));
+    initializePoly(poly,numOfVertices);
+    printPoly(poly,numOfVertices);
+    free(poly);
+    return 0;
+
 }
 void printPoint(struct point pt) {
     printf("(%d, %d)\n", pt.x, pt.y);
