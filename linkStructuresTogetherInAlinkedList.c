@@ -9,6 +9,8 @@ struct point{
 void printPoints(struct point *start);
 // void append(struct point *end, struct point *start);
 struct point * append (struct point *, struct point *);
+struct point *creatPoint(int , int);
+void freePointer(struct point *start);
 int main(void){
     /*
     struct point pt1 = {1,2, NULL};
@@ -48,14 +50,13 @@ int main(void){
             end = append(end,pt);
         }
     }
-
+     printPoints(start);
     /*
         start = end = &pt1;
         end = append(end,&pt2);
         end = append(end,&pt3);
     */
-
-    printPoints(start);
+    freePoint(start);
     return 0;
     
 }
@@ -80,3 +81,21 @@ struct point * append (struct point * end, struct point * pt) {
     end->next = pt;
     return(end->next);
 } 
+
+struct point *creatPoint(int x, int y){
+    struct point *ptr;
+    ptr = (struct point *)malloc(sizeof(struct point));
+    ptr->x = x;
+    ptr->y = y;
+    ptr->next = NULL;
+    return ptr;
+};
+
+void freePointer(struct point *start){
+    struct point *ptr;
+    while(ptr != NULL){
+        start = ptr;
+        ptr = ptr->next;
+        free(start);
+    }
+}
