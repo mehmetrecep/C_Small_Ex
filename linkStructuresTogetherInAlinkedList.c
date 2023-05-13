@@ -7,12 +7,16 @@ struct point{
     struct point *next;
 };
 void printPoints(struct point *start);
-void append(struct point *end, struct point *start);
+// void append(struct point *end, struct point *start);
+struct point * append (struct point *, struct point *);
 int main(void){
+    /*
     struct point pt1 = {1,2, NULL};
     struct point pt2 = {-2,3, NULL};
     struct point pt3 = {5, -4, NULL};
     struct point *start, *ptr;
+    */
+    
     /*
     start = &pt1;
     pt1.next = &pt2;
@@ -25,10 +29,35 @@ int main(void){
     printf("pt2 address :%p\n",&pt2);
     printf("%p\n",pt2.next);
     */
+
+    struct point *start, *end , *pt;
+    int num, i;
+    int x, y;
+    printf("How many points? ");
+    scanf("%d ", &num);
+
+    for(i = 0; i < num; i++){
+        printf("x = ");
+        scanf("%d",&x);
+        printf("y = ");
+        scanf("%d",&y);
+        pt = creatPoint(x,y);
+        if(i == 0){
+            start = end = pt;
+        }else{
+            end = append(end,pt);
+        }
+    }
+
+    /*
+        start = end = &pt1;
+        end = append(end,&pt2);
+        end = append(end,&pt3);
+    */
+
     printPoints(start);
-    append(&pt1,&pt2);
-    append(&pt2,&pt3);
     return 0;
+    
 }
 
 void printPoints(struct point *start){
@@ -40,6 +69,14 @@ void printPoints(struct point *start){
     ptr = ptr->next;
     }
 }
+/*
 void append(struct point *end, struct point *start){
     end->next = start;
 };
+*/
+
+
+struct point * append (struct point * end, struct point * pt) {
+    end->next = pt;
+    return(end->next);
+} 
