@@ -6,7 +6,7 @@ struct point{
     int y;
     struct point *next;
 };
-
+void printPoints(struct point *start);
 int main(void){
     struct point pt1 = {1,2, NULL};
     struct point pt2 = {-2,3, NULL};
@@ -22,12 +22,17 @@ int main(void){
     printf("pt2 address :%p\n",&pt2);
     printf("%p\n",pt2.next);
     */
+    printPoints(start);
+
+    return 0;
+}
+
+void printPoints(struct point *start){
+    struct point *ptr;
     ptr = start;
    while(ptr != NULL){
     printf("(%d, %d)\n", ptr->x, ptr->y);
     printf("%p\n", ptr);
     ptr = ptr->next;
     }
-
-    return 0;
 }
