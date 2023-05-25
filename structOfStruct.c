@@ -1,18 +1,19 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct student {
     char first_Name[30];
     char second_Name[30];
     int id;
-    struct studentPoint *next;
+    struct student *next;
 };
 
-void printPoints(struct studentPoint *start);
-struct point * append(struct studentPoint *, struct studentPoint *);
+void printPoints(struct student *start);
+struct point * append(struct student *, struct student *);
 struct point creatPoint(int,int);
-void freePointer(struct studentPoint *start);
+void freePointer(struct student *start);
 
 int main(int argc, char **argv){
     
@@ -59,4 +60,14 @@ int main(int argc, char **argv){
 
     
     return 0;
+}
+void printPoints(struct student *start){
+    struct student  *prt;
+    prt = start;
+    while(prt != NULL){
+        printf("%s ", prt->first_Name);
+        printf("%p \n",prt);
+        prt = prt->next;
+    }
+
 }
